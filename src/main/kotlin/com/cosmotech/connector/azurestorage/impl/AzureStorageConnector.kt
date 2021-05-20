@@ -13,6 +13,7 @@ import com.azure.storage.blob.BlobContainerClientBuilder
 import com.azure.storage.blob.models.ListBlobsOptions
 import com.azure.storage.blob.models.BlobItem
 import com.azure.core.http.rest.PagedIterable
+import java.time.Duration
 
 
 /**
@@ -55,7 +56,13 @@ class AzureStorageConnector : Connector<BlobContainerClient, PagedIterable<BlobI
         val preparedData = this.prepare(client)
         preparedData.forEach {
           val blobName = it.getName()
-          var localRelativeFile = blobName.removePrefix(this.prefix ?: "")
+          var localRelativeFile = if (this.prefix == blobName) {
+            LOGGER.debug("Direct file download detected")
+            File(blobName).getName()
+          } else {
+            blobName.removePrefix(this.prefix ?: "")
+          }
+
           if (localRelativeFile.startsWith("/")) {
             localRelativeFile = localRelativeFile.drop(1)
           }
