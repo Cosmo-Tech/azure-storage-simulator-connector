@@ -1,8 +1,7 @@
 # Azure Digital Twins connector
 The aim of this project is to :
- - read data from Azure Storage
- - flatten these data in a list of CSVData Pojo defined in the library simulator-connector-commons
- - Export Csv Files containing these data
+ - list files from Azure Storage
+ - Download Files
 
 ## Properties to overwrite :
 Here is the list of properties that should be changed (in ```META-INF/microprofile-config.properties``` file):
