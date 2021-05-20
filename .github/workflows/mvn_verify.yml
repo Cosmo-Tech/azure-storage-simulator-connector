@@ -1,0 +1,15 @@
+name: Maven Verify
+on: [push,pull_request]
+jobs:
+  test:
+    name: Unit Test
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - name: Set up JDK
+        uses: actions/setup-java@v2.1.0
+        with:
+          distribution: 'adopt'
+          java-version: '16'
+      - name: Maven Verify
+        run: mvn -B clean verify
