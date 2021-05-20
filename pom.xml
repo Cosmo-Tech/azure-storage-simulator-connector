@@ -19,6 +19,7 @@
     <smallrye-config.version>1.5.0</smallrye-config.version>
     <!-- Azure  -->
     <azure-storage-blob.version>12.11.1</azure-storage-blob.version>
+    <azure-core.version>1.16.0</azure-core.version>
   </properties>
 
   <repositories>
@@ -59,6 +60,11 @@
         <groupId>com.azure</groupId>
         <artifactId>azure-storage-blob</artifactId>
         <version>${azure-storage-blob.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-core</artifactId>
+        <version>${azure-core.version}</version>
     </dependency>
 
     <!-- Default -->
@@ -175,6 +181,11 @@
               <tag>${project.version}</tag>
             </tags>
           </to>
+          <container>
+            <jvmFlags>
+              <jvmFlag>-XX:-UsePerfData</jvmFlag>
+            </jvmFlags>
+          </container>
           <!--<container>
             <jvmFlags>
               <jvmFlag>-javaagent:/applicationinsights-agent-3.0.2.jar</jvmFlag>
