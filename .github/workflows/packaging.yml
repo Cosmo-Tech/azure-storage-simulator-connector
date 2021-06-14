@@ -27,14 +27,13 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
-      - uses: actions/cache@v2.1.5
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
-            ${{ runner.os }}-gradle-
+            ${{ runner.os }}-maven-
 
       - name: Retrieve branch or tag name
         id: refvar
