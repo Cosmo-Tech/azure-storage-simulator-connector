@@ -176,10 +176,6 @@
           </from>
           <to>
             <image>localhost:5000/azure-storage-simulator-connector</image>
-            <tags>
-              <tag>latest</tag>
-              <tag>${project.version}</tag>
-            </tags>
           </to>
           <container>
             <jvmFlags>
