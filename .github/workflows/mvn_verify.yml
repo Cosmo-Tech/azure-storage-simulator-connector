@@ -11,5 +11,14 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '16'
+
+      - name: Cache local Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
       - name: Maven Verify
-        run: mvn -B clean verify
+        run: mvn -B clean install
