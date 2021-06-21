@@ -54,6 +54,7 @@ class AzureStorageConnector : Connector<BlobContainerClient, PagedIterable<BlobI
         LOGGER.info("Azure Storage Connector start")
         val client = this.createClient()
         val preparedData = this.prepare(client)
+        var nbProcessed = 0
         preparedData.forEach {
           val blobName = it.getName()
           var localRelativeFile = if (this.prefix == blobName) {
@@ -82,7 +83,12 @@ class AzureStorageConnector : Connector<BlobContainerClient, PagedIterable<BlobI
           LOGGER.info("Downloading blob ${blobName}")
           val blobClient = client.getBlobClient(blobName)
           blobClient.downloadToFile(localAbsolutePath, true)
+
+          nbProcessed++
         }
+
+        LOGGER.info("Downloaded $nbProcessed files from Azure Storage container: " +
+          this.containerName)
 
         LOGGER.info("Azure Storage Connector finished")
     }
