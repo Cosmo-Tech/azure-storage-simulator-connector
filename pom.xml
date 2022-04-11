@@ -18,7 +18,7 @@
     <simulator-connector-commons.version>0.2.1</simulator-connector-commons.version>
     <smallrye-config.version>1.5.0</smallrye-config.version>
     <!-- Azure  -->
-    <azure-storage-blob.version>12.11.1</azure-storage-blob.version>
+    <azure-storage-blob.version>12.16.0</azure-storage-blob.version>
     <azure-core.version>1.16.0</azure-core.version>
   </properties>
 
