@@ -3,6 +3,13 @@ The aim of this project is to :
  - list files from Azure Storage
  - Download Files
 
+
+## Changelog
+
+### 1.1.2:
+#### Fix:
+ - "SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder"" warning
+
 ## Properties to overwrite :
 Here is the list of properties that should be changed (in ```META-INF/microprofile-config.properties``` file):
 - **azure.storage.connection.string**
