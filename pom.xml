@@ -20,7 +20,7 @@
     <slf4j-nop.version>1.7.36</slf4j-nop.version>
     <!-- Azure  -->
     <azure-storage-blob.version>12.11.1</azure-storage-blob.version>
-    <azure-core.version>1.16.0</azure-core.version>
+    <azure-core.version>1.34.0</azure-core.version>
   </properties>
 
   <repositories>
